@@ -28,7 +28,7 @@ CompanyName = 'arwynfr'
 Copyright = '(c) arwynfr. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'Powershell module for hash-based file synchronization over HTTP'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -69,7 +69,7 @@ Copyright = '(c) arwynfr. All rights reserved.'
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @(
     'Copy-HashManifest'
-    'New-HashManifest'
+    'Get-HashManifest'
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
@@ -99,10 +99,10 @@ PrivateData = @{
         # Tags = @()
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/ArwynFr/HashWebCopy/blob/master/LICENSE'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/ArwynFr/HashWebCopy'
 
         # A URL to an icon representing this module.
         # IconUri = ''
