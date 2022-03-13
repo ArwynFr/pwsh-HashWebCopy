@@ -13,13 +13,17 @@ function Test-FileHash {
         [String]
         $Algorithm = 'MD5'
     )
-    
-    if (-Not(Test-Path $Path -PathType Leaf)) {
-        Write-Debug "$Path is not a file"
-        return $false
-    }   
 
-    $private:actual = (Get-FileHash -Path $Path -Algorithm MD5).Hash
-    Write-Debug "$Path $Algorithm hash is $private:actual"
-    return $Hash -eq $Private:actual
+    Process {
+    
+        if (-Not(Test-Path $Path -PathType Leaf)) {
+            Write-Debug "$Path is not a file"
+            return $false
+        }   
+
+        $private:actual = (Get-FileHash -Path $Path -Algorithm MD5).Hash
+        Write-Debug "$Path $Algorithm hash is $private:actual"
+        return $Hash -eq $Private:actual
+        
+    }
 }

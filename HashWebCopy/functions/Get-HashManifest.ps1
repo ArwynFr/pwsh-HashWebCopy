@@ -1,4 +1,4 @@
-function New-HashManifest {
+function Get-HashManifest {
     [CmdletBinding()]
     [OutputType([hashtable[]])]
     param (
