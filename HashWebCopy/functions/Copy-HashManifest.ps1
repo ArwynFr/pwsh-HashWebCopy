@@ -32,6 +32,7 @@ function Copy-HashManifest {
 
     Process {
 
+        $client = New-Object net.webclient
         $Manifest | Where-Object {
             $private:filename = Join-Path $Destination -ChildPath $_.Filename
             -Not(Test-FileHash -Path $private:filename -Algorithm $Algorithm -Hash $_.Hash)
@@ -39,7 +40,7 @@ function Copy-HashManifest {
             if ($PSCmdlet.ShouldProcess($_.Location, 'Download')) {
                 $private:filename = Join-Path $Destination -ChildPath $_.Filename
                 New-Item -Force -Path $private:filename -ItemType 'file' | Out-Null
-                Invoke-WebRequest -Uri $_.Location -OutFile $private:filename -PassThru:$PassThru
+                $client.Downloadfile($_.Location, $private:filename)
             }
         }
 
