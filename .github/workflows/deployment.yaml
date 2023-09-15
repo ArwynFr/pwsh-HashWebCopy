@@ -1,0 +1,15 @@
+name: continuous deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  deployment:
+    uses: ArwynFr/ArwynFr/.github/workflows/pwsh-deployment.yaml@main
+    with:
+      manifest: ./StepSemVer/StepSemVer.psd1
+      source: ./StepSemVer/
+    secrets:
+      PSGALLERY_APIKEY: ${{ secrets.PSGALLERY_APIKEY }}
